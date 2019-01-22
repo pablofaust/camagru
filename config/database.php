@@ -28,11 +28,11 @@
 
 		}
 
-		// public function sql_insert($statement) {
-		// 	$insert = $this->getPDO()->exec($statement);
-		// }
+		public function sql_insert($statement) {
+			$insert = $this->getPDO()->exec($statement);
+		}
 
-		public function query($statement) {
+		public function sql_select($statement) {
 
 			$req = $this->getPDO()->query($statement);
 			$res = $req->fetchAll(PDO::FETCH_OBJ);
