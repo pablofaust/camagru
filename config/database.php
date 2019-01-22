@@ -1,11 +1,44 @@
 <?php
 
-	$DB_DSN = "mysql:host=localhost;dbname=camagru;charset=utf8";
-	$DB_HOST = "localhost";
-	$DB_USER = "root";
-	$DB_PASSWORD = "root";
-	$DB_NAME = "camagru";
-	$DB_NEW_USER = "pfaust";
-	$DB_NEW_PASS = "pass1234";
+	class Database {
+
+		private $db_name;
+		private $db_user;
+		private $db_pass;
+		private $db_host;
+		private $pdo;
+
+		public function __construct($db_name, $db_user = 'root', $db_pass = 'root', $db_host = 'localhost') {
+
+			$this->db_name = $db_name;
+			$this->db_user = $db_user;
+			$this->db_pass = $db_pass;
+			$this->db_host = $db_host;
+
+		}
+
+		private function getPDO() {
+
+			if ($this->pdo === null) {
+				$pdo = new PDO('mysql:dbname=camagru;host=localhost', 'root', 'root');
+				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$this->pdo = $pdo;
+			}
+			return $this->pdo;
+
+		}
+
+		// public function sql_insert($statement) {
+		// 	$insert = $this->getPDO()->exec($statement);
+		// }
+
+		public function query($statement) {
+
+			$req = $this->getPDO()->query($statement);
+			$res = $req->fetchAll(PDO::FETCH_OBJ);
+			return $res;
+
+		}
+	}
 	
 ?>

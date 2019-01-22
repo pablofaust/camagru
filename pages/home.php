@@ -1,3 +1,4 @@
-<h1>Home</h1>
+<?php
 
-<a href="index.php?p=login">Login</a>
+
+?>

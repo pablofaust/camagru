@@ -1,6 +1,5 @@
 <?php
 
-
 	/**
 	 * Class Autoloader
 	 */
@@ -18,6 +17,10 @@
 	     * @param $class string Le nom de la classe à charger
 	     */
 	    static function autoload($class){
+	    	if (strpos($class, __NAMESPACE__ . '\\') === 0) {
+	    		$class = streplace(__NAMESPACE__ . '\\', '', $class);
+	    		$class = streplace('\\', '/', $class);
+	    	}
 	        require __DIR__ . $class . '.php';
 	    }
 
