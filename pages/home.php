@@ -2,7 +2,7 @@
 
 		$img = new Image ($image);
 		$url = $img->getPath();
-		echo "<img src=\"$url\"/>";
+		echo "<div class='gallery-img' style='background-image:url(\"$url\");'></div>";
 
 endforeach; ?>
 

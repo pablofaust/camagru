@@ -21,6 +21,10 @@
 		require './pages/home.php';
 	}
 
+	else if ($p === 'register') {
+		require './pages/register.php';
+	}
+
 	else if ($p === 'login') {
 		require './pages/login.php';
 	}

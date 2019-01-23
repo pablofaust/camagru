@@ -1,0 +1,24 @@
+.navbar {
+	height: 10vh;
+}
+
+.starter-template {
+	padding-bottom :100px;
+	display:flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items:center;
+	padding: 1em 0em 1em 0em;
+	min-height: 85vh;
+}
+
+.footer {
+	height: 5vh;
+}
+
+.gallery-img {
+	background-size: cover;
+	background-position: no-repeat;
+	height: 20em;
+	width: 20em;
+}

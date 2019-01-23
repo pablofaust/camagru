@@ -17,7 +17,7 @@
 
 		}
 
-		private function getPDO() {
+		public function getPDO() {
 
 			if ($this->pdo === null) {
 				$pdo = new PDO('mysql:dbname=camagru;host=localhost', 'root', 'root');
@@ -28,16 +28,26 @@
 
 		}
 
-		public function sql_insert($statement) {
-			$insert = $this->getPDO()->exec($statement);
-		}
-
 		public function sql_select($statement) {
 
 			$req = $this->getPDO()->query($statement);
 			$res = $req->fetchAll(PDO::FETCH_OBJ);
 			return $res;
 
+		}
+
+		public function user_exists($username) {
+			$req = $this->pdo->prepare("SELECT id FROM users WHERE username = ?");
+			$req->execute($username);
+			$res = $req->fetchALL(PDO::FETCH_OBJ);
+			return $res;
+		}
+
+		public function mail_exists($mail) {
+			$req = $this->pdo->prepare("SELECT id FROM users WHERE mail = ?");
+			$req->execute($mail);
+			$res = $req->fetchALL(PDO::FETCH_OBJ);
+			return $res;
 		}
 	}
 	
