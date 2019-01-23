@@ -1,5 +1,9 @@
-<?php foreach ($images as $image) ?>
-	
-	<img src="../public/img/<? = $image->title ?> class="img-fluid" alt="Responsive image">
+<?php foreach ($images as $image):
 
-?>
+		$img = new Image ($image);
+		$url = $img->getPath();
+		echo "<img src=\"$url\"/>";
+
+endforeach; ?>
+
+

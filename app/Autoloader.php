@@ -21,7 +21,7 @@
 	    		$class = streplace(__NAMESPACE__ . '\\', '', $class);
 	    		$class = streplace('\\', '/', $class);
 	    	}
-	        require __DIR__ . $class . '.php';
+	        require __DIR__ . '/' . $class . '.php';
 	    }
 
 	}
